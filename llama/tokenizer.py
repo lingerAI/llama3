@@ -171,6 +171,9 @@ class Tokenizer:
         """
         # Typecast is safe here. Tiktoken doesn't do anything list-related with the sequence.
         return self.model.decode(cast(List[int], t))
+    
+    def decode_single_token_bytes(self, token: int):
+        return self.model.decode_single_token_bytes(token)
 
     @staticmethod
     def _split_whitespaces_or_nonwhitespaces(
